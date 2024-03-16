@@ -1,0 +1,22 @@
+<div class="card  shadow" *ngIf="viewList">
+    <h5 class="card-header ">My Todo List</h5>
+    <div class="card-body"  >
+        <ul class="list-group" cdkDropList 
+        (cdkDropListDropped)="drop($event)" >
+        <div *ngFor="let todo of todoService.todoList" >
+            <app-todo [todoInput]="todo" cdkDrag></app-todo>
+            <!-- <div cdkDrag>test </div> -->
+        </div>
+       
+        </ul>
+    </div>
+</div>
+
+<div class="card shadow bg-primary text-white" *ngIf="!viewList">
+    <h5 class="card-header">My fav List</h5>
+    <div class="card-body" >
+        <ul class="list-group" *ngFor="let todo of todoService.todoList">
+            <app-todo *ngIf="todo.isFavorite" [todoInput]="todo" ></app-todo>
+        </ul>
+    </div>
+</div>

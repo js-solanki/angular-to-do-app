@@ -1,0 +1,16 @@
+
+<div class="card shadow mb-5">
+    <div class="card-header bg-primary text-light">
+        <h4>ADD TODO</h4>
+    </div>
+    <div class="card-body">
+        <form #addTodo="ngForm" (submit)="onSubmit()">
+            <div class="form-group mb-5">
+                <input type="text" name="todo" class="form-control mb-5" placeholder="add todo" [(ngModel)]="todo" required>
+                <input type="date" name="tododate" class="form-control" placeholder="Add date" [(ngModel)]="date" required>
+            </div>
+            <button class="btn btn-outline-primary mx-3" [disabled]="addTodo.invalid"> ADD </button>
+            <button class="btn btn-outline-secondary" (click)="onCancel()"> cancel </button>
+        </form>
+    </div>
+</div>
